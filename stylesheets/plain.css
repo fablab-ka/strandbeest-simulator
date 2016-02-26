@@ -5,6 +5,31 @@ html {
     font-size: 16px;
 }
 
+#main_content {
+    background-color: white;
+    max-width: 1060px;
+}
+
+#control_form {
+}
+#control_form > div {
+    padding: 5px;
+    width: 1020px;
+    overflow-x: scroll;
+}
+#control_form code {
+    font-size: 12px;
+}
+
+#canvasbox {
+    height:700px;
+    width: 1030px;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
 code, kbd, pre, samp, tt, .script {
     font-family: "Lucida Sans Typewriter", monospace;
     font-size: 14px;
@@ -69,6 +94,7 @@ body.article a:hover {
 table.ruled, table.ruled td, table.ruled th {
     border: 1px solid #ccc;
     border-collapse: collapse;
+    vertical-align: inherit;
 }
 
 table.striped tbody tr:nth-child(2n+1) {

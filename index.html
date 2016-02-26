@@ -36,8 +36,8 @@
             <section id="main_content" class="inner">
 
                 <h1 style="position: relative; left: 0; width:900px"> Theo Jansen’s Strandbeest</h1>
-                <form onsubmit="return false" action="strandbeest.html">
-                    <div class="display box" style="width:900px; overflow-x:scroll">
+                <form id="control_form" onsubmit="return false" action="strandbeest.html">
+                    <div class="display box">
                         <label>
                             <input type="range" name="speed" id="speed" min="0" max="100" value="20" style="width:85%"> Speed
                         </label><br/>
@@ -123,11 +123,11 @@
 
                 </form>
                 <div class="display box" id="canvasbox"
-                     style="height:700px; width:900px; position: relative; left: 0; top: 0; z-index: 0">
+                     style="height:700px; width:1030px; position: relative; left: 0; top: 0; z-index: 0">
                     <canvas id="analysis" style="position: absolute; left: 0; top: 0; z-index: 20;"></canvas>
                     <canvas id="strandbeest" style="position: absolute; left: 0; top: 0; z-index: 50;"></canvas>
                 </div>
-                <table id="log" class="ruled striped" style="margin:1em; width:900px; position: relative; left: 0; top: 0;   ">
+                <table id="log" class="ruled striped" style="margin:1em; width:1030px; position: relative; left: 0; top: 0;   ">
                 </table>
             </section>
         </div>
