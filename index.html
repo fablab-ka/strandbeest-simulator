@@ -1,106 +1,146 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <title>Strandbeest Simulator</title>
+<!DOCTYPE html>
+    <html>
 
-        <link href="./plain.css" type="text/css" rel="stylesheet"/>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="description" content="Strandbeest-simulator : ">
+
+        <title>Strandbeest-simulator</title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        <link href="stylesheets/plain.css" type="text/css" rel="stylesheet"/>
     </head>
 
     <body>
-        <h1 style="position: relative; left: 0; width:900px"> Theo Jansen’s Strandbeest</h1>
-        <form onsubmit="return false" action="strandbeest.html">
-            <div class="display box" style="width:900px; overflow-x:scroll">
-                <label>
-                    <input type="range" name="speed" id="speed" min="0" max="100" value="20" style="width:85%"> Speed
-                </label><br/>
-                <label style="white-space:nowrap">
-                    <code>AB</code>
-                    <input type="text" valussse="155.2" value="155.2" size="4" name="AB">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>AC</code>
-                    <input type="text" value="60" size="4" name="AC">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>CD</code>
-                    <input type="text" value="200" size="4" name="CD">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>BD</code>
-                    <input type="text" value="166" size="4" name="BD">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>BE</code>
-                    <input type="text" value="157.2" size="4" name="BE">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>CE</code>
-                    <input type="text" value="247.6" size="4" name="CE">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>DF</code>
-                    <input type="text" value="223.2" size="4" name="DF">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>BF</code>
-                    <input type="text" value="160.4" size="4" name="BF">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>FG</code>
-                    <input type="text" value="157.6" size="4" name="FG">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>EG</code>
-                    <input type="text" value="146.8" size="4" name="EG">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>GH</code>
-                    <input type="text" value="262.8" size="4" name="GH">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>EH</code>
-                    <input type="text" value="196" size="4" name="EH">
-                </label>
-                <code>Bx</code>
-                <input type="text" value="0" size="4" name="Bx" readonly style="background-color: #eeeeff">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>By</code>
-                    <input type="text" value="0" size="4" name="By" readonly style="background-color: #eeeeff">
-                </label>
-                <label style="white-space:nowrap">
-                    <code>&alpha;</code>
-                    <input type="text" value="0" size="4" name="alpha" readonly style="background-color: #eeeeff">
-                </label>
-                <br>
-                <input type="button" onclick="window.visualizer.beestPause(this)" value="Pause" name="pause">
-                <input type="button" onclick="window.visualizer.beestSave()" value="Save" name="save">
-                <input type="submit" onclick="window.visualizer.beestUpdate()" value="Update" name="update">
-                <label>
-                    <input type="checkbox" name="drawLabels"> Draw labels
-                </label>
-                <label>
-                    &nbsp;&nbsp;Number of legs:
-                    <select name="numLegs" id="numLegs">
-                        <option value=1 selected="selected"> 1</option>
-                        <option value=2> 2</option>
-                        <option value=3> 3</option>
-                        <option value=4> 4</option>
-                    </select>
-                </label>
-                <label>
-                    <input type="checkbox" name="mirrorLegs"> Mirror legs
-                </label>
-            </div>
 
-        </form>
-        <div class="display box" id="canvasbox"
-             style="height:700px; width:900px; position: relative; left: 0; top: 0; z-index: 0">
-            <canvas id="analysis" style="position: absolute; left: 0; top: 0; z-index: 20;"></canvas>
-            <canvas id="strandbeest" style="position: absolute; left: 0; top: 0; z-index: 50;"></canvas>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/fablab-ka/strandbeest-simulator">View on GitHub</a>
+
+                <h1 id="project_title">Strandbeest-simulator</h1>
+                <h2 id="project_tagline"></h2>
+
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/fablab-ka/strandbeest-simulator/zipball/master">Download
+                        this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/fablab-ka/strandbeest-simulator/tarball/master">Download
+                        this project as a tar.gz file</a>
+                </section>
+            </header>
         </div>
-        <table id="log" class="ruled striped" style="margin:1em; width:900px; position: relative; left: 0; top: 0;   ">
-        </table>
+
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+
+                <h1 style="position: relative; left: 0; width:900px"> Theo Jansen’s Strandbeest</h1>
+                <form onsubmit="return false" action="strandbeest.html">
+                    <div class="display box" style="width:900px; overflow-x:scroll">
+                        <label>
+                            <input type="range" name="speed" id="speed" min="0" max="100" value="20" style="width:85%"> Speed
+                        </label><br/>
+                        <label style="white-space:nowrap">
+                            <code>AB</code>
+                            <input type="text" valussse="155.2" value="155.2" size="4" name="AB">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>AC</code>
+                            <input type="text" value="60" size="4" name="AC">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>CD</code>
+                            <input type="text" value="200" size="4" name="CD">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>BD</code>
+                            <input type="text" value="166" size="4" name="BD">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>BE</code>
+                            <input type="text" value="157.2" size="4" name="BE">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>CE</code>
+                            <input type="text" value="247.6" size="4" name="CE">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>DF</code>
+                            <input type="text" value="223.2" size="4" name="DF">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>BF</code>
+                            <input type="text" value="160.4" size="4" name="BF">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>FG</code>
+                            <input type="text" value="157.6" size="4" name="FG">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>EG</code>
+                            <input type="text" value="146.8" size="4" name="EG">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>GH</code>
+                            <input type="text" value="262.8" size="4" name="GH">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>EH</code>
+                            <input type="text" value="196" size="4" name="EH">
+                        </label>
+                        <code>Bx</code>
+                        <input type="text" value="0" size="4" name="Bx" readonly style="background-color: #eeeeff">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>By</code>
+                            <input type="text" value="0" size="4" name="By" readonly style="background-color: #eeeeff">
+                        </label>
+                        <label style="white-space:nowrap">
+                            <code>&alpha;</code>
+                            <input type="text" value="0" size="4" name="alpha" readonly style="background-color: #eeeeff">
+                        </label>
+                        <br>
+                        <input type="button" onclick="window.visualizer.beestPause(this)" value="Pause" name="pause">
+                        <input type="button" onclick="window.visualizer.beestSave()" value="Save" name="save">
+                        <input type="submit" onclick="window.visualizer.beestUpdate()" value="Update" name="update">
+                        <label>
+                            <input type="checkbox" name="drawLabels"> Draw labels
+                        </label>
+                        <label>
+                            &nbsp;&nbsp;Number of legs:
+                            <select name="numLegs" id="numLegs">
+                                <option value=1 selected="selected"> 1</option>
+                                <option value=2> 2</option>
+                                <option value=3> 3</option>
+                                <option value=4> 4</option>
+                            </select>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="mirrorLegs"> Mirror legs
+                        </label>
+                    </div>
+
+                </form>
+                <div class="display box" id="canvasbox"
+                     style="height:700px; width:900px; position: relative; left: 0; top: 0; z-index: 0">
+                    <canvas id="analysis" style="position: absolute; left: 0; top: 0; z-index: 20;"></canvas>
+                    <canvas id="strandbeest" style="position: absolute; left: 0; top: 0; z-index: 50;"></canvas>
+                </div>
+                <table id="log" class="ruled striped" style="margin:1em; width:900px; position: relative; left: 0; top: 0;   ">
+                </table>
+            </section>
+        </div>
+
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Strandbeest-simulator maintained by <a href="https://github.com/fablab-ka">fablab-ka</a>
+                </p>
+                <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+
 
         <script type="text/javascript" src="./js/sylvester.js"></script>
         <script type="text/javascript" src="./js/math.js"></script>
@@ -108,4 +148,5 @@
         <script type="text/javascript" src="./js/strandbeest.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
     </body>
+
 </html>
