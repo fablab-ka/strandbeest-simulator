@@ -64,6 +64,17 @@ Visualizer.prototype.drawPoints = function (angleOffset, legs, legColors, mirror
   return {updatedPoints: updatedPoints, k: k, j: j};
 };
 
+Visualizer.prototype.drawLegPositionIndicatorDot = function (legColors, numLegs, legs, xPlotDistance) {
+  this.context.beginPath();
+  this.context.strokeStyle = "#000";
+  this.context.fillStyle = legColors[numLegs - legs];
+  var x = (this.canvas.width - 10) - (((this.beest.leg.angle + 540 - this.lastAnalysis.startGroundAngle - (((360 / numLegs) * legs) % 360)) % 360) * xPlotDistance);
+  this.context.arc(x, this.canvas.height - 10, 5, 0, 2 * Math.PI, true);
+  this.context.fill();
+  this.context.stroke();
+  this.context.fillStyle = "#000000";
+}
+
 Visualizer.prototype.draw = function () {
   var xPlotWidth = this.canvas.width - 20;
   var xPlotSteps = 360;
@@ -80,13 +91,7 @@ Visualizer.prototype.draw = function () {
       this.drawPoints(angleOffset, legs, legColors, true);
     }
 
-    this.context.beginPath();
-    this.context.strokeStyle = "#EEEE00";
-    this.context.fillStyle = legColors[numLegs - legs];
-    this.context.arc((this.canvas.width - 10) - (((this.beest.angle + 540 - this.lastAnalysis.startGroundAngle - (((360 / numLegs) * legs) % 360)) % 360) * xPlotDistance), this.canvas.height - 10, 5, 0, 2 * Math.PI, true);
-    this.context.fill();
-    this.context.stroke();
-    this.context.fillStyle = "#000000";
+    this.drawLegPositionIndicatorDot(legColors, numLegs, legs, xPlotDistance);
   }
 };
 
